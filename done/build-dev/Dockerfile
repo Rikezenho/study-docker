@@ -1,5 +1,5 @@
 FROM python:3.6
-LABEL maintainer 'Henrique Kuwai <eu@henriquekuwai.com.br>'
+LABEL maintainer 'Aluno Cod3r <aluno at cod3r.com.br>'
 
 RUN useradd www && \
     mkdir /app && \
