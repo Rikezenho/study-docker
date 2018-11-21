@@ -1,4 +1,6 @@
 version: "3"
+# volumes: -- TO-DO: testar em outro sistema operacional. Aparentemente, no windows, dá problema ao relacionar o volume da máquina com o remoto
+# dados: -- TO-DO: testar em outro sistema operacional. Aparentemente, no windows, dá problema ao relacionar o volume da máquina com o remoto
 networks:
   banco:
   web:
@@ -7,7 +9,7 @@ services:
   db:
     image: postgres:9.6
     volumes:
-      # Volume dos dados
+      # Volume dos dados -- TO-DO: testar em outro sistema operacional. Aparentemente, no windows, dá problema ao relacionar o volume da máquina com o remoto
       # - ./dados:/var/lib/postgresql/data
       # Scripts
       - ./scripts:/scripts
@@ -41,6 +43,8 @@ services:
     depends_on:
       - db
       - queue
+    environment:
+      - DB_NAME=email_sender
   queue:
     image: redis:3.2
     networks:
